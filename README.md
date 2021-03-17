@@ -3,15 +3,17 @@ gIM is a GPU-accelerated RIS-based influence maximization (IM) algorithm.
 
 
 # Installation
-#### CUDA toolkit
+### CUDA toolkit
 To install CUDA toolkit please use [this link](https://developer.nvidia.com/cuda-downloads).
 
-#### Compile and execute
+### Compilation
 
 * Compile the code using the following command:
  ```
  nvcc -std=c++11 -O3  -lcurand  *.cu  -o gIM
  ```
+ 
+### Execution
  
 * Run the code using the following command:
 ```
@@ -29,11 +31,14 @@ epsilon : A positive number by which the (1-1/e-epsilon)-approximation ratio is 
 IC/LT : enter 1 for IC and 0 for LT model
 
 * Example:
-```./RIS ../datasets/epin.inf 50 0.1 1```
+```./gIM ../datasets/epin.inf 50 0.1 1```
 
 * Input file format:
-The input file is composed of m lines, each of which represents a directed edge by using 3 numbers as follows:
+
+The input file is composed of m lines, each of which represents a directed edge by using 3 parameters as follows:
+
 source-node-id(int) destination-node-id(int)  weight(float)
+
 Node IDs are non-negative integers. There is no restriction on the order of edges or existence of parallel edges in the input file.
 
 # Publication
@@ -46,10 +51,10 @@ Given a social network modeled as a weighted graph G, the influence maximization
 #### Citation
 Please cite gIM in your publications if it helps your research:
 ```
-	@article{gim,
-		author = {Soheil Shahrouz and Saber Salehkaleybar and Matin Hashemi}, 
-		title = {gIM: GPU Accelerated RIS-based Influence Maximization Algorithm},
-		journal = {IEEE Transactions on Parallel and Distributed Systems (TPDS)},
-		year = {2021},
-	}
+@article{gim,
+	author = {Soheil Shahrouz and Saber Salehkaleybar and Matin Hashemi}, 
+	title = {gIM: GPU Accelerated RIS-based Influence Maximization Algorithm},
+	journal = {IEEE Transactions on Parallel and Distributed Systems (TPDS)},
+	year = {2021},
+}
 ```
