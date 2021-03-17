@@ -8,38 +8,31 @@ To install CUDA toolkit please use [this link](https://developer.nvidia.com/cuda
 
 ### Compilation
 
-* Compile the code using the following command:
+Compile the code using the following command:
  ```
  nvcc -std=c++11 -O3  -lcurand  *.cu  -o gIM
  ```
  
 ### Execution
  
-* Run the code using the following command:
+Run the code using the following command:
 ```
 ./gIM /path/to/dataset  k epsilon  IC/LT
 ```
 
-* Description of the arguments:
+Description of the arguments:
 
-/path/to/dataset : The relative or absolute path to the file containing weighted edge list
+* /path/to/dataset : The relative or absolute path to the file containing weighted edge list
+* k : A positive integer which determines the number of nodes to be put in the seed set
+* epsilon : A positive number by which the (1-1/e-epsilon)-approximation ratio is determined
+* IC/LT : enter 1 for IC and 0 for LT model
+* Example: ```./gIM ../datasets/epin.inf 50 0.1 1```
 
-k : A positive integer which determines the number of nodes to be put in the seed set
+Input file format:
 
-epsilon : A positive number by which the (1-1/e-epsilon)-approximation ratio is determined
-
-IC/LT : enter 1 for IC and 0 for LT model
-
-* Example:
-```./gIM ../datasets/epin.inf 50 0.1 1```
-
-* Input file format:
-
-The input file is composed of m lines, each of which represents a directed edge by using 3 parameters as follows:
-
-source-node-id(int) destination-node-id(int)  weight(float)
-
-Node IDs are non-negative integers. There is no restriction on the order of edges or existence of parallel edges in the input file.
+* The input file is composed of m lines, each of which represents a directed edge by using 3 parameters as follows: ```source-node-id(int) destination-node-id(int)  weight(float)```
+* Node IDs are non-negative integers. 
+* There is no restriction on the order of edges or existence of parallel edges in the input file.
 
 # Publication
 
