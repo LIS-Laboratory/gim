@@ -6,13 +6,23 @@ gIM is a GPU-accelerated RIS-based influence maximization (IM) algorithm.
 ### CUDA toolkit
 To install CUDA toolkit please use [this link](https://developer.nvidia.com/cuda-downloads).
 
+### Repository Preparation
+
+gIM uses cub library for some parallel algorithms like scan. Before compiling the code, initialize submodules using the following command:
+ ```
+ git submodule update --init
+ ```
+
 ### Compilation
 
 Compile the code using the following command:
  ```
  nvcc -std=c++11 -O3  -lcurand  *.cu  -o gIM
  ```
- 
+ If you are using CUDA 7.5 and newer versions on Windows, you can remove the -std flag because these versions include the support for C++11 standard by default. Wildcard expansion does not work in cmd.exe, so you need to use the following command for compiling the code:
+ ```
+ nvcc -O3 -lcurand kernels.cu IM.cu testgraph.cu -o gIM
+ ``` 
 ### Execution
  
 Run the code using the following command:
