@@ -7,7 +7,7 @@
 
 #include <curand.h>
 #include <curand_kernel.h>
-#include "./cub-1.8.0/cub/cub.cuh"
+#include "./cub/cub/cub.cuh"
 
 __device__ uint32_t mix_hash(uint32_t a, uint32_t b, uint32_t c)
 {

@@ -10,7 +10,7 @@
 #include <thrust/execution_policy.h>
 
 #include "kernels.h"
-#include "./cub-1.8.0/cub/cub.cuh"
+#include "./cub/cub/cub.cuh"
 
 #define MAX_NUMBER_OF_RR_SETS 30000000
 
